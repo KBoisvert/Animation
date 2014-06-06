@@ -1,255 +1,797 @@
+/*Les keyframes des animations sont à la fin du document*/
 
-/* classe .general doit être placée dans la div de chaque élément, 
-s'applique comme propriétés de bases pour chaque animation au départ' */
+/* Propriétés de bases pour les animations*/
 .general{
-display:block;
-width:100px;
-height:70px;
-margin:40px;
-background-color: #008B8B;
-text-align:center;
-padding-top:25px;
-font-size:12px;
+	display:block;
+	width:100px;
+	height:70px;
+	margin:40px;
+	background-color: #008B8B;
+	text-align:center;
+	padding-top:25px;
+	font-size:12px;
 }
 
-/* propriétés de départ de chaque élément, 
-mettre la classe dans la div de l'élément à animer */
-
-/* animation 1 */
-.general.ani1 p{
+/* animation1  animation de texte dans une boîte.
+L'animation démarre sur un hover*/
+.general.ani1:hover p{  
+	-webkit-animation: deplaceAngle 3s ease 0s infinite normal; 
+	-moz-animation: deplaceAngle 3s ease 0s infinite normal; 
+	-ms-animation: deplaceAngle 3s ease 0s infinite normal; 
+	animation: deplaceAngle 3s ease 0s infinite normal;
 }
 
-.general.ani1:hover p{
--webkit-animation: anim1 3s ease 0s infinite normal;
+/*pour faire agrandir la boite*/
+.general.ani1:hover { 
+	width:330px; 
+	background-color:#20B2AA;
 }
 
-.general.ani1:hover {
-width:330px;
-background-color:#20B2AA;
-}
-
-/* animation 2 */
+/* animation 2 cercle qui flash avec un temps de 
+disparition au milieu et changement de couleur et de grosseur*/
 .general.ani2{
-border-style:none;
-border-radius:50%;
--webkit-animation:anim2 2s ease-in 0s infinite reverse; 
-margin:30px;
-color:white;
-
+	border-style:none;  
+	border-radius:50%; /*pour faire un cercle, enlever */
+	margin:30px; 
+	color:white;
+	-webkit-animation:flash 2s ease-in 0s infinite reverse;
+	-moz-animation:flash 2s ease-in 0s infinite reverse; 
+	-ms-animation:flash 2s ease-in 0s infinite reverse;  
+	
 }
 
-/* animation 3 */
+/* animation 3 rectangle qui se transforme en parallelogramme*/
 .general.ani3{
-background-color:#3CB371;
--webkit-animation: anim3 1s ease 0s infinite alternate;
-border-style: solid;
-border-width: 3px;
-border-color: black;
+	background-color:#3CB371; 
+	border-style: solid; 
+	border-width: 3px;
+	border-color: black;
+	-webkit-animation: parallele 2s ease-out 0s infinite alternate;
+	-moz-animation: parallele 2s ease-out 0s infinite alternate;
+	-ms-animation: parallele 2s ease-out 0s infinite alternate;
+	animation: parallele 2s ease-out 0s infinite alternate;
 }
 
-/* animation 4 */
+/* animation 4 vague  pourrait servir pour une vague ou un bateau sur l'eau*/
 .general.ani4 {
--webkit-animation: anim4 5s linear 0s infinite normal;
-margin:50px 0px;
-border-style:none;
-border-radius:35%;
-height:50px;
-padding-top:10px;
+	margin:50px 0px; 
+	border-style:none;
+	border-radius:35%;
+	height:50px;
+	padding-top:10px; 
+	-webkit-animation: vague 6s ease-in 0s infinite normal;
+	-moz-animation: vague 6s ease-in 0s infinite normal;
+	-ms-animation: vague 6s ease-in 0s infinite normal;
+	animation: vague 6s ease-in 0s infinite normal;
 }
 
-/* animation 5 */
+/* animation 5 saut peut servir à animer un poisson qui saute de l'eau et fait un tour*/
 .general.ani5 {
--webkit-animation: anim5 5s ease 0s infinite normal;
-vertical-align:middle;
+	vertical-align:middle;
+	-webkit-animation: monteTourne 5s ease 1s infinite normal;
+	-moz-animation: monteTourne 5s ease 1s infinite normal;
+	-ms-animation: monteTourne 5s ease 1s infinite normal;
+	animation: monteTourne 5s ease 1s infinite normal;
 }
 
+/* ------------------ Animations KEYFRAMES-----------------------  */
+/* propriétés animées le déplacement (translate), la couleur du texte et du background, espace entre les lettres */
+@-webkit-keyframes deplaceAngle{  /* hover de anim*/
 
-/* Animation -----------------------  */
-
-
-@-webkit-keyframes anim1{  /* hover de anim1*/
-
-		0%{
+	0%{ /* départ*/
 		-webkit-transform:translate(0px, 0px);
 		font-size:15px;
 		letter-spacing:10px;
 		text-align:left;
-		}
+	}
 		
-		40%{
+	40%{ /*le texte devient jaune, se déplace de 100px vers la droite et monte de 30px,
+		l'espace entre les lettres revient normal'*/
 		-webkit-transform:translate(100px, -30px);
-		color:yellow;
 		letter-spacing:0px;
-		}
+		color:yellow;		
+	}
 		
-		60%{
+	60%{ /*le texte devient noir, revient à sa position de départ,
+		l'espace entre les lettres s'agrandit de 10px*/
 		-webkit-transform:translate(0px, 0px);
 		letter-spacing:10px;
-		text-align:left;
 		color:black;
-		}
+		text-align:left;
+	}
 		
-		80%{
+	80%{ /*le texte devient jaune, se déplace de 100px vers la droite et descend de 30px,
+		l'espace entre les lettres revient normal'*/
 		-webkit-transform:translate(100px, 30px);
-		font-size:15px;
-		color:yellow;
 		letter-spacing:0px;
-		}
-		100%{
+		color:yellow;
+		font-size:15px;
+	}
+	100%{ /*le texte devient noir, revient à sa position de départ,
+		l'espace entre les lettres s'agrandit de 10px*/
 		-webkit-transform:translate(0px, 0px);
 		letter-spacing:10px;
-		text-align:left;
 		color:black;
+		text-align:left;
 		font-size:15px;
-		}
-
+	}
 }
 
+@-moz-keyframes deplaceAngle{  /* hover de ani1*/
 
-/*-------------------------------*/
-@-webkit-keyframes anim2 {
+	0%{ /* départ*/
+		-moz-transform:translate(0px, 0px); 
+		font-size:15px;
+		letter-spacing:10px;
+		text-align:left;
+	}
+		
+	40%{ /*le texte devient jaune, se déplace de 100px vers la droite et monte de 30px,
+		l'espace entre les lettres revient normal'*/
+		-moz-transform:translate(100px, -30px); 
+		letter-spacing:0px;
+		color:yellow;		
+	}
+		
+	60%{ /*le texte devient noir, revient à sa position de départ,
+		l'espace entre les lettres s'agrandit de 10px*/
+		-moz-transform:translate(0px, 0px); 
+		letter-spacing:10px;
+		color:black;
+		text-align:left;
+	}
+		
+	80%{ /*le texte devient jaune, se déplace de 100px vers la droite et descend de 30px,
+		l'espace entre les lettres revient normal'*/
+		-moz-transform:translate(100px, 30px); 
+		letter-spacing:0px;
+		color:yellow;
+		font-size:15px;
+	}
+	100%{ /*le texte devient noir, revient à sa position de départ,
+		l'espace entre les lettres s'agrandit de 10px*/
+		-moz-transform:translate(0px, 0px); 
+		letter-spacing:10px;
+		color:black;
+		text-align:left;
+		font-size:15px;
+	}
+} 
+
+@-ms-keyframes deplaceAngle{  /* hover de ani1*/
+
+	0%{ /* départ*/
+		-ms-transform:translate(0px, 0px); 
+		font-size:15px;
+		letter-spacing:10px;
+		text-align:left;
+	}
+		
+	40%{ /*le texte devient jaune, se déplace de 100px vers la droite et monte de 30px,
+		l'espace entre les lettres revient normal'*/
+		-ms-transform:translate(100px, -30px); 
+		letter-spacing:0px;
+		color:yellow;		
+	}
+		
+	60%{ /*le texte devient noir, revient à sa position de départ,
+		l'espace entre les lettres s'agrandit de 10px*/ 
+		-ms-transform:translate(0px, 0px); 
+		letter-spacing:10px;
+		color:black;
+		text-align:left;
+	}
+		
+	80%{ /*le texte devient jaune, se déplace de 100px vers la droite et descend de 30px,
+		l'espace entre les lettres revient normal'*/
+		-ms-transform:translate(100px, 30px); 	
+		letter-spacing:0px;
+		color:yellow;
+		font-size:15px;
+	}
+	100%{ /*le texte devient noir, revient à sa position de départ,
+		l'espace entre les lettres s'agrandit de 10px*/
+		-ms-transform:translate(0px, 0px); 
+		letter-spacing:10px;
+		color:black;
+		text-align:left;
+		font-size:15px;
+	}
+}
+
+@ keyframes deplaceAngle{  /* hover de ani1*/
+
+	0%{ /* départ*/
+		transform:translate(0px, 0px);
+		font-size:15px;
+		letter-spacing:10px;
+		text-align:left;
+	}
+		
+	40%{ /*le texte devient jaune, se déplace de 100px vers la droite et monte de 30px,
+		l'espace entre les lettres revient normal'*/
+		transform:translate(100px, -30px);
+		letter-spacing:0px;
+		color:yellow;		
+	}
+		
+	60%{ /*le texte devient noir, revient à sa position de départ,
+		l'espace entre les lettres s'agrandit de 10px*/
+		transform:translate(0px, 0px);
+		letter-spacing:10px;
+		color:black;
+		text-align:left;
+	}
+		
+	80%{ /*le texte devient jaune, se déplace de 100px vers la droite et descend de 30px,
+		l'espace entre les lettres revient normal'*/
+		transform:translate(100px, 30px);
+		letter-spacing:0px;
+		color:yellow;
+		font-size:15px;
+	}
+	100%{ /*le texte devient noir, revient à sa position de départ,
+		l'espace entre les lettres s'agrandit de 10px*/
+		transform:translate(0px, 0px);
+		letter-spacing:10px;
+		color:black;
+		text-align:left;
+		font-size:15px;
+	}
+} 
+
+/*-------------------FLASH--------------------*/
+/* propriétés animées la grosseur (scale), la couleur du texte et du background, opacité */
+@-webkit-keyframes flash {
 	0%{
-	-webkit-transform: scale(1);
+		-webkit-transform: scale(1);		
+		color:white;
 	}
 	
 	40%{
-	opacity:1;
+		opacity:1;
+		color:white;
 	}
 	45%{
 		opacity:0;
 	}
 	55%{
-	background-color:white;
-	opacity:0;
+		background-color:white;
+		opacity:0;
 	}
 	60%{
-	opacity:1;
+		opacity:1;
+		color:black;
 	}
 
 	100%{
-	-webkit-transform: scale(1.5);
-	background-color:orange;
-	color:black;
-	}
-	
+		-webkit-transform: scale(1.5);	
+		background-color:orange;
+		color:black;
+	}	
 }
 
-/*-------------------------*/
-
-@-webkit-keyframes anim3 {
+@-moz-keyframes flash {
 	0%{
-	-webkit-transform: skew(-30deg);
-	border-left-width:0px;
-	border-right-width:0px;
-	margin-left:10px;
-	padding-top:20px;
-	text-align:left;
+		-moz-transform: scale(1);	
+		color:white;
+	}
+	
+	40%{
+		opacity:1;
+		color:white;
 	}
 	45%{
-	height:50px;
-	background-color:#BDB76B;
-	-webkit-transform: skew(0deg);
-	font-weight:bold;
-	width:150px;
-	border-left-width:3px;
-	border-right-width:3px;
-	padding-top:0px;
+		opacity:0;
+	}
+	55%{
+		background-color:white;
+		opacity:0;
+	}
+	60%{
+		opacity:1;
+		color:black;
+	}
+
+	100%{
+		-moz-transform: scale(1.5);	
+		background-color:orange;
+		color:black;
+	}	
+}
+
+@-ms-keyframes flash {
+	0%{
+		-ms-transform: scale(1); 		
+		color:white;
+	}
+	
+	40%{
+		opacity:1;
+		color:white;
+	}
+	45%{
+		opacity:0;
+	}
+	55%{
+		background-color:white;
+		opacity:0;
+	}
+	60%{
+		opacity:1;
+		color:black;
+	}
+
+	100%{
+		-ms-transform: scale(1.5);	
+		background-color:orange;
+		color:black;
+	}	
+}
+
+@ keyframes flash {
+	0%{
+		transform: scale(1);		
+		color:white;
+	}
+	
+	40%{
+		opacity:1;
+		color:white;
+	}
+	45%{
+		opacity:0;
+	}
+	55%{
+		background-color:white;
+		opacity:0;
+	}
+	60%{
+		opacity:1;
+		color:black;
+	}
+
+	100%{
+		transform: scale(1.5);		
+		background-color:orange;
+		color:black;
+	}	
+}
+
+/*--------------PARALLELE---------------------*/
+/* propriétés animées la forme (skew), les bordures de côtés, largeur (width) */
+@-webkit-keyframes parallele {
+	0%{
+		-webkit-transform: skew(-30deg);
+		border-left-width:0px;
+		border-right-width:0px;
+		margin-left:10px;
+		padding-top:20px;
+		text-align:left;
+	}
+	45%{
+		-webkit-transform: skew(0deg);
+		height:50px;
+		width:150px;
+		padding-top:0px;
+		border-left-width:3px;
+		border-right-width:3px;	
+		font-weight:bold;
 	}
 
 	55%{
-	-webkit-transform: skew(0deg);
-	height:50px;
-	background-color:#BDB76B;
-	font-weight:bold;
-	width:150px;
-	border-left-width:3px;
-	border-right-width:3px;
-	padding-top:0px;
+		-webkit-transform: skew(0deg);
+		height:50px;
+		width:150px;
+		padding-top:0px;
+		border-left-width:3px;
+		border-right-width:3px;
+		font-weight:bold;
 	}
 
 	100%{
-	-webkit-transform: skew(30deg);
-	margin-left:50px;
-	border-left-width:0px;
-	border-right-width:0px;
-	padding-top:20px;
+		-webkit-transform: skew(30deg);
+		margin-left:50px;
+		padding-top:20px;
+		border-left-width:0px;
+		border-right-width:0px;
 	}
-	
 }
 
-/*------------------------------------------------*/
-@-webkit-keyframes anim4{
+@ keyframes parallele {
 	0%{
-	margin-left:0;
-	text-shadow:0;
+		transform: skew(-30deg);
+		border-left-width:0px;
+		border-right-width:0px;
+		margin-left:10px;
+		padding-top:20px;
+		text-align:left;
+	}
+	45%{
+		transform: skew(0deg);
+		height:50px;
+		width:150px;
+		padding-top:0px;
+		border-left-width:3px;
+		border-right-width:3px;
+		background-color:#BDB76B;		
+		font-weight:bold;
+	}
+
+	55%{
+		transform: skew(0deg);
+		height:50px;
+		width:150px;
+		padding-top:0px;
+		border-left-width:3px;
+		border-right-width:3px;
+		background-color:#BDB76B;
+		font-weight:bold;
+	}
+
+	100%{
+		transform: skew(30deg);
+		margin-left:50px;
+		padding-top:20px;
+		border-left-width:0px;
+		border-right-width:0px;
+	}
+}
+
+@-moz-keyframes parallele {
+	0%{
+		-moz-transform: skew(-30deg);
+		border-left-width:0px;
+		border-right-width:0px;
+		margin-left:10px;
+		padding-top:20px;
+		text-align:left;
+	}
+	45%{
+		-moz-transform: skew(0deg);
+		height:50px;
+		width:150px;
+		padding-top:0px;
+		border-left-width:3px;
+		border-right-width:3px;
+		background-color:#BDB76B;		
+		font-weight:bold;
+	}
+
+	55%{
+		-moz-transform: skew(0deg);
+		height:50px;
+		width:150px;
+		padding-top:0px;
+		border-left-width:3px;
+		border-right-width:3px;
+		background-color:#BDB76B;
+		font-weight:bold;
+	}
+
+	100%{
+		-moz-transform: skew(30deg);
+		margin-left:50px;
+		padding-top:20px;
+		border-left-width:0px;
+		border-right-width:0px;
+	}
+}
+
+@-ms-keyframes parallele {
+	0%{
+		-ms-transform: skew(-30deg);
+		border-left-width:0px;
+		border-right-width:0px;
+		margin-left:10px;
+		padding-top:20px;
+		text-align:left;
+	}
+	45%{
+		-ms-transform: skew(0deg);
+		height:50px;
+		width:150px;
+		padding-top:0px;
+		border-left-width:3px;
+		border-right-width:3px;
+		background-color:#BDB76B;		
+		font-weight:bold;
+	}
+
+	55%{
+		-ms-transform: skew(0deg);
+		height:50px;
+		width:150px;
+		padding-top:0px;
+		border-left-width:3px;
+		border-right-width:3px;
+		background-color:#BDB76B;
+		font-weight:bold;
+	}
+
+	100%{
+		-ms-transform: skew(30deg);
+		margin-left:50px;
+		padding-top:20px;
+		border-left-width:0px;
+		border-right-width:0px;
+	}
+}
+
+/*------------------VAGUE------------------------------*/
+/* propriétés animées le déplacement(translate), l'angle(rotate) la couleur, l'ombre et la grosseur du texte et couleur du background,  */
+
+@-webkit-keyframes vague{
+	0%{
+		margin-left:0;
+		text-shadow:0;
 	}
 	12%{
-	-webkit-transform:translate(200px, 40px) rotate(10deg);
-	text-shadow:3px 3px 3px red;
-	color:white;
-	font-size:10px;
-
+		-webkit-transform:translate(200px, 100px) rotate(15deg);
+		color:white;
+		font-size:10px;
 	}
 
 	36%{
-	-webkit-transform:translate(400px, -40px) rotate(-10deg);
-	text-shadow:3px 3px 3px red;
-	color:black;
-	font-size:15px;
-
+		-webkit-transform:translate(400px, -100px) rotate(-15deg);
+		color:black;
+		font-size:15px;
 	}
 
 	60%{
-	-webkit-transform:translate(600px, 40px) rotate(10deg);
-	color:white;
-	font-size:10px;
+		-webkit-transform:translate(600px, 100px) rotate(15deg);	
+		color:white;
+		font-size:10px;
 	}
 
 	84%{
-	-webkit-transform:translate(800px, -40px) rotate(-10deg);
-	color:black;
-	font-size:15px;
+		-webkit-transform:translate(800px, -100px) rotate(-15deg);	
+		color:black;
+		font-size:15px;
 	}
 	
 	100%{
-	-webkit-transform:translate(1000px, 40px) rotate(10deg);
-	font-size:10px;
+		-webkit-transform:translate(1000px, 100px) rotate(15deg);	
+		font-size:10px;
 	}
 }
 
-
-/*-------------------------------------*/
-
-
-@-webkit-keyframes anim5 {
+@-moz-keyframes vague{
 	0%{
-	-webkit-transform:translate(0px,0px) rotate(0deg);
-	border-radius:0;
-	background-color:#FFA07A;
-	color:black;
+		margin-left:0;
+		text-shadow:0;
+	}
+	12%{
+		-moz-transform:translate(200px, 100px) rotate(15deg);
+		color:white;
+		font-size:10px;
+	}
+
+	36%{
+		-moz-transform:translate(400px, -100px) rotate(-15deg);
+		color:black;
+		font-size:15px;
+	}
+
+	60%{
+		-moz-transform:translate(600px, 100px) rotate(15deg);	
+		color:white;
+		font-size:10px;
+	}
+
+	84%{
+		-moz-transform:translate(800px, -100px) rotate(-15deg);	
+		color:black;
+		font-size:15px;
+	}
+	
+	100%{
+		-moz-transform:translate(1000px, 100px) rotate(15deg);	
+		font-size:10px;
+	}
+}
+
+@-ms-keyframes vague{
+	0%{
+		margin-left:0;
+		text-shadow:0;
+	}
+	12%{
+		-ms-transform:translate(200px, 100px) rotate(15deg);
+		color:white;
+		font-size:10px;
+	}
+
+	36%{
+		-ms-transform:translate(400px, -100px) rotate(-15deg);
+		color:black;
+		font-size:15px;
+	}
+
+	60%{
+		-ms-transform:translate(600px, 100px) rotate(15deg);	
+		color:white;
+		font-size:10px;
+	}
+
+	84%{
+		-ms-transform:translate(800px, -100px) rotate(-15deg);	
+		color:black;
+		font-size:15px;
+	}
+	
+	100%{
+		-ms-transform:translate(1000px, 100px) rotate(15deg);	
+		font-size:10px;
+	}
+}
+
+@ keyframes vague{
+	0%{
+		margin-left:0;
+		text-shadow:0;
+	}
+	12%{
+		transform:translate(200px, 100px) rotate(15deg);
+		color:white;
+		font-size:10px;
+	}
+
+	36%{
+		transform:translate(400px, -100px) rotate(-15deg);
+		color:black;
+		font-size:15px;
+	}
+
+	60%{
+		transform:translate(600px, 100px) rotate(15deg);	
+		color:white;
+		font-size:10px;
+	}
+
+	84%{
+		transform:translate(800px, -100px) rotate(-15deg);	
+		color:black;
+		font-size:15px;
+	}
+	
+	100%{
+		transform:translate(1000px, 100px) rotate(15deg);	
+		font-size:10px;
+	}
+}
+
+/*-----------MONTE TOURNE--------------------------*/
+/* propriétés animées le déplacement(translate), la rotation(rotate), les bordures, couleurs de fond et du texte   */
+
+@-webkit-keyframes monteTourne {
+	0%{
+		-webkit-transform:translate(0px,0px) rotate(0deg);
+		border-radius:0;
+		background-color:#FFA07A;
+		color:black;
 	}
 	
 	45%{
-	-webkit-transform:translate(300px,-290px) rotate(-15deg)  ;
-	border-style:none;
-	border-radius:25%;
-	background-color:#FFA07A;
-	color:black;
+		-webkit-transform:translate(300px,-290px) rotate(-15deg)  ;
+		border-style:none;
+		border-radius:25%;
+		background-color:#FFA07A;
+		color:black;
 	}
 	
 	55%{
-	-webkit-transform:translate(500px,-300px) rotate(360deg);
-	color:red;
-	border-style:none;
-	border-radius:25%;
-	background-color:#20B2AA;
+		-webkit-transform:translate(500px,-300px) rotate(360deg);
+		border-style:none;
+		border-radius:25%;
+		background-color:#20B2AA;
+		color:red;
 	}	
 	
 	100%{
-	-webkit-transform:translate(800px,0px) rotate(375deg);
-	border-style:none;
-	border-radius:0%;
-	background-color:#20B2AA;
-	color:red;
+		-webkit-transform:translate(800px,0px) rotate(375deg);	
+		border-style:none;
+		border-radius:0%;
+		background-color:#20B2AA;
+		color:red;
+	}
+}
+
+@-moz-keyframes monteTourne {
+	0%{
+		-moz-transform:translate(0px,0px) rotate(0deg);
+		border-radius:0;
+		background-color:#FFA07A;
+		color:black;
+	}
+	
+	45%{
+		-moz-transform:translate(300px,-290px) rotate(-15deg)  ;
+		border-style:none;
+		border-radius:25%;
+		background-color:#FFA07A;
+		color:black;
+	}
+	
+	55%{
+		-moz-transform:translate(500px,-300px) rotate(360deg);
+		border-style:none;
+		border-radius:25%;
+		background-color:#20B2AA;
+		color:red;
+	}	
+	
+	100%{
+		-moz-transform:translate(800px,0px) rotate(375deg);	
+		border-style:none;
+		border-radius:0%;
+		background-color:#20B2AA;
+		color:red;
+	}
+}
+
+@-ms-keyframes monteTourne {
+	0%{
+		-ms-transform:translate(0px,0px) rotate(0deg);
+		border-radius:0;
+		background-color:#FFA07A;
+		color:black;
+	}
+	
+	45%{
+		-ms-transform:translate(300px,-290px) rotate(-15deg)  ;
+		border-style:none;
+		border-radius:25%;
+		background-color:#FFA07A;
+		color:black;
+	}
+	
+	55%{
+		-ms-transform:translate(500px,-300px) rotate(360deg);
+		border-style:none;
+		border-radius:25%;
+		background-color:#20B2AA;
+		color:red;
+	}	
+	
+	100%{
+		-ms-transform:translate(800px,0px) rotate(375deg);	
+		border-style:none;
+		border-radius:0%;
+		background-color:#20B2AA;
+		color:red;
+	}
+}
+
+@ keyframes monteTourne {
+	0%{
+		transform:translate(0px,0px) rotate(0deg);
+		border-radius:0;
+		background-color:#FFA07A;
+		color:black;
+	}
+	
+	45%{
+		transform:translate(300px,-290px) rotate(-15deg)  ;
+		border-style:none;
+		border-radius:25%;
+		background-color:#FFA07A;
+		color:black;
+	}
+	
+	55%{
+		transform:translate(500px,-300px) rotate(360deg);
+		border-style:none;
+		border-radius:25%;
+		background-color:#20B2AA;
+		color:red;
+	}	
+	
+	100%{
+		transform:translate(800px,0px) rotate(375deg);	
+		border-style:none;
+		border-radius:0%;
+		background-color:#20B2AA;
+		color:red;
 	}
 }
